@@ -1,0 +1,23 @@
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    width: 650px;
+    height: 700px;
+    box-shadow: inset;
+}
+
+.patterns {
+    width: 75px;
+    height: 75px;
+    margin: auto;
+    background-color: aqua;
+}
+
+.even-squares {
+    background-color: rgb(197, 197, 175);
+}
+
+.odd-squares {
+    background-color: black;
+}
