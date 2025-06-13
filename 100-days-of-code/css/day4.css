@@ -1,0 +1,33 @@
+body {
+    color:	rgb(222,222,222);
+    background-color:	rgb(32,32,32);
+}
+
+h2 {
+    text-align: center;
+}
+
+.today {
+    color: #1245ff;
+}
+
+p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    font-size: large;
+    color: rgb(34, 213, 100);
+}
+
+a {
+    text-decoration: none;
+    color:rgb(165, 184, 184);
+}
+
+h2 > a {
+    background-color: brown;
+}
+
+#progress {
+    font-style: italic;
+    color: rgb(120, 90, 228);
+}
