@@ -1,0 +1,23 @@
+body {
+    background-color: aliceblue;
+    color: #0f0f0e9d;
+}
+h1, nav {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+.daily-update {
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: larger;
+    font-weight: 600;
+    font-style: italic;
+}
+
+p {
+    font-family:cursive;
+}
