@@ -1,3 +1,8 @@
+button {
+    cursor: pointer;
+    margin-bottom: 10px;
+    border: none;
+}
 #subscribe-btn {
     background-color: red;
     border: none;
@@ -6,7 +11,6 @@
     height: 36px;
     width: 100px;
     border-radius: 2.5px;
-    cursor: pointer;
     margin-right: 8px;
 }
 
@@ -19,7 +23,6 @@
     height: 36px;
     width: 62px;
     border-radius: 2px;
-    cursor: pointer;
     margin-right: 8px;
 }
 
@@ -27,8 +30,113 @@
     background-color: rgb(55, 159, 190);
     color: white;
     height: 36px;
-    width: 62px;
+    width: 75px;
     border-radius: 20px;
     border-style: none;
+    font-weight: bold;
+    font-size: 15px;
+}
 
+.uber-btn {
+    background-color: black;
+    color: white;
+    width: 120px;
+    height: 40px;
+    font-weight: bold;
+    font-size: 500;
+    border: none;
+}
+
+.amazon-btn {
+    background-color: rgb(255, 216, 20);
+    color: black;
+    width: 220px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    font-size: 16px;
+}
+
+.github-btn {
+    background-color: rgb(46, 164, 79);
+    color: white;
+    width: 110px;
+    height: 40px;
+    font-weight: 500;
+    font-size: medium;
+    border-radius: 10px;
+}
+
+.bootstrap-btn {
+    border-radius: 3.5px;
+    width: 120px;
+    height: 40px;
+    font-weight: 500;
+    font-size: large;
+}
+
+#start-btn {
+    background-color: rgb(121, 83, 179);
+    color: whitesmoke;
+}
+
+#download-btn {
+    border-color: rgb(108, 117, 125);
+    background-color: whitesmoke;
+    color: rgb(121, 83, 179);
+    border-style: solid;
+    border-width: 1px;
+}
+
+.linkedin-btn {
+    border-radius: 20px;
+    width: 120px;
+    height: 40px;
+    font-weight: 600;
+    font-size: large;
+}
+
+#apply {
+    width: 300px;
+    color: white;
+    background-color: rgb(10, 102, 194);
+}
+
+#save {
+    color: rgb(10, 102, 194);
+    border-color: rgb(10, 102, 194);
+    background-color: white;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.back {
+    color:rgb(0, 113, 133);
+}
+
+.shoes {
+    font-weight: 600;
+    font-size: xx-large;
+}
+
+.price {
+    color: rgb(0, 118, 0);
+    font-weight: bold;
+}
+
+.add-btn {
+    width: 120px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: rgb(255, 216, 20);
+    font-weight: bold;
+    
+}
+
+.buy-btn {
+    font-weight: bold;
+    border-radius: 20px;
+    width: 120px;
+    height: 30px;
+    background-color: rgb(255, 164, 28);
 }
