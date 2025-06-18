@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Register</title>
+  </head>
+  <body>
+    <!-- Registration Form -->
+    <form
+      id="registrationForm"
+      action="https://formsubmit.co/nuzlahkale@gmail.com"
+      method="POST"
+      enctype="multipart/form-data"
+      target="_blank"
+    >
+      <!-- CAPTCHA to prevent spam -->
+      <input type="hidden" name="_captcha" value="true" />
+
+      <!-- Redirect to thank-you page -->
+      <input
+        type="hidden"
+        name="_next"
+        value="https://alzunelak.github.io/my-profile-page/Thankyou.html"
+      />
+
+      <!-- Name (Required, with star) -->
+      <label for="name">Your name <span class="required-star">*</span></label
+      ><br />
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Your full name"
+        required
+      /><br /><br />
+
+      <!-- Email (Required, no star) -->
+      <label for="email">Your email</label><br />
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="email@gmail.com"
+        required
+      /><br /><br />
+
+      <!-- Phone (Required) -->
+      <label for="phone"
+        >Phone Number <span class="required-star">*</span></label
+      ><br />
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        placeholder="+254712345678"
+        required
+      /><br /><br />
+
+      <!-- LinkedIn (Optional) -->
+      <label for="linkedin">LinkedIn Profile Link (optional)</label><br />
+      <input
+        type="url"
+        id="linkedin"
+        name="linkedin"
+        placeholder="https://linkedin.com/in/yourname"
+      /><br /><br />
+
+      <!-- Date of Birth  -->
+      <label for="dob">Date of Birth</label><br />
+      <input type="date" id="dob" name="dob" /><br /><br />
+
+      <!-- Preferred Contact Time (Optional) -->
+      <label for="contact_time">Preferred Contact Time</label><br />
+      <input type="time" id="contact_time" name="contact_time" /><br /><br />
+
+      <!-- Gender selection using radio buttons  -->
+
+      <label>Gender</label><br />
+      <input type="radio" id="male" name="gender" value="male" />
+      <label for="male">Male</label><br />
+      <input type="radio" id="female" name="gender" value="female" />
+      <label for="female">Female</label><br />
+      <input type="radio" id="other" name="gender" value="other" />
+      <label for="other">Other</label><br /><br />
+
+      <!-- Checkbox multiMultiple choice checkboxes for selecting user interests - Optional) -->
+      <label>Interests (you can choose more than one):</label><br />
+      <input type="checkbox" id="tech" name="interests[]" value="tech" />
+      <label for="tech">Technology</label><br />
+      <input type="checkbox" id="design" name="interests[]" value="design" />
+      <label for="design">Design</label><br />
+      <input
+        type="checkbox"
+        id="networking"
+        name="interests[]"
+        value="networking"
+      />
+      <label for="networking">Networking</label><br />
+      <input
+        type="checkbox"
+        id="speaking"
+        name="interests[]"
+        value="speaking"
+      />
+      <label for="speaking">Public Speaking</label><br /><br />
+
+      <!-- File Upload (Optional PDF) -->
+      <label for="pdfUpload">Upload your PDF file (CV or ID):</label><br />
+      <input
+        type="file"
+        id="pdfUpload"
+        name="pdfUpload"
+        accept="application/pdf"
+      /><br /><br />
+
+      <!-- Rating feedback rating using a dropdown (select) menu (Required) -->
+      <label for="rating"
+        >Rate your experience (1 = very dissatisfied, 6 = extremely satisfied)
+        <span class="required-star">*</span></label
+      ><br />
+      <select name="rating" id="rating" required>
+        <option value="" disabled selected>Select a rating</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option></select
+      ><br /><br />
+
+      <!-- Optional feedback textarea for suggestions  -->
+      <label for="improvement">What can we improve?</label><br />
+      <textarea
+        id="improvement"
+        name="improvement"
+        rows="4"
+        placeholder="Please share 
+your suggestions here..."
+      ></textarea
+      ><br /><br />
+
+      <!-- Terms & Conditions (Required) -->
+      <label>
+        <input type="checkbox" name="terms" required />
+        I agree to the event’s terms and conditions
+        <span class="required-star">*</span> </label
+      ><br /><br />
+
+      <!-- Submit Button -->
+
+      <input type="submit" value="Register" />
+    </form>
+  </body>
+</html>

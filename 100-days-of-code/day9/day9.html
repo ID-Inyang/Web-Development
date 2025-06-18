@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 9: HTML Forms</title>
+  </head>
+  <body>
+    <a href="form.html">HTML Form</a>
+    <a href="text-styles.html">Text Styles</a>
+    <form
+      id="contact-form"
+      action="https://formsubmit.co/id.inyang9@gmail.com"
+      method="post"
+      enctype="multipart/form-data"
+      target="_blank"
+    >
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" value="thankyou.html" />
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" name="" id="" />
+      </div>
+      <br />
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="" />
+      </div>
+      <br />
+      <div>
+        <label for="tel">Tel:</label>
+        <input type="tel" name="tel" id="" />
+      </div>
+      <br />
+      <div>
+        <label for="url">URL:</label>
+        <input type="url" name="url" id="" />
+      </div>
+      <br />
+      <div>
+        <label for="date">Date:</label>
+        <input type="date" name="date" required id="" />
+      </div>
+      <br />
+      <div>
+        <label for="file">File:</label>
+        <input type="file" name="file" id="" />
+      </div>
+      <br />
+      <div>
+        <label for="radio">Are you older than 18</label>
+        <br />
+        <input type="radio" name="age" id="" />Yes
+        <br />
+        <input type="radio" name="age" />No
+        <br />
+      </div>
+      <br />
+      <div>
+        <label for="checkbox">Best Shows</label>
+        <br />
+        <input type="checkbox" name="shows" id="" />The Office
+        <input type="checkbox" name="shows" id="" />Parks and recreation
+        <input type="checkbox" name="shows" id="" />The Drop 2027.
+      </div>
+
+      <br />
+
+      <div>
+        <label for="comment">Comment:</label>
+        <textarea
+          name="comment"
+          id=""
+          cols="30"
+          rows="2"
+          placeholder="Type in your comment"
+        ></textarea>
+      </div>
+      <br />
+      <div>
+        <label for="rating">Rating:</label>
+        <br>
+        <select name="rating" id="">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+      </div>
+      <br>
+      <div>
+        <input type="submit" value="Submit" />
+      </div>
+    </form>
+  </body>
+</html>
