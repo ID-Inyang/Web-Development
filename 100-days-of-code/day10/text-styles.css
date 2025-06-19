@@ -1,0 +1,82 @@
+div {
+    margin-bottom: 20px;
+}
+p {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.tahoma-text {
+    font-family: Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 800;
+    font-size: 23px;
+}
+
+.five-b {
+    font-family: Arial, Helvetica, sans-serif;
+}
+.deals-header {
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.deals-text {
+    margin-top: 10px;
+    font-style: italic;
+    font-weight: lighter;
+    font-size: 17px;
+    color: rgb(235, 66, 66);
+}
+
+.five-c {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.course-title {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 1px;
+}
+
+.beginner-text {
+    font-size: 15px;
+    color: gray;
+    margin-bottom: 15px;
+}
+
+.course-description {
+    width: 300px;
+    line-height: 20px;
+}
+
+.start-btn {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border-radius: 4px;
+    border-style: none;
+    background-color: rgb(9, 119, 9);
+    color: white;
+}
+
+
+.five-d {
+    margin-top: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+.shop-heading {
+    font-weight: bold;
+    font-size: 27px;
+    margin-bottom: 20px;
+}
+
+.apple-text {
+    margin-bottom: 20px;
+}
+
+.apple-link {
+    text-decoration: none;
+}
