@@ -18,21 +18,39 @@
         width: 300px;
       }
 
-      .video-author{
+      .video-author {
+        border: none;
       }
 
       .video-stats {
+        border: none;
+      }
+
+      .video-preview {
+        display: inline-block;
+        width: 300px;
       }
     </style>
   </head>
   <body>
-    <input type="text" name="search-bar" id="search-bar" placeholder="Search" />
-    <img src="thumbnails/thumbnail-1.webp" class="thumbnail-img" />
+    <input type="text" name="search-bar" id="search-bar" placeholder="Search" class="search-bar"/>
 
-    <p class="video-title">
-      Talking Tech and <strong>AI</strong> with Google CEO Sundar Pichai!
-    </p>
-    <p class="video-author">Marques Brownlee</p>
-    <p class="video-stats">3.4M views &middot; 6 months ago</p>
+    <div class="video-preview">
+      <img src="thumbnails/thumbnail-1.webp" class="thumbnail-img" />
+      <p class="video-title">
+        Talking Tech and <strong>AI</strong> with Google CEO Sundar Pichai!
+      </p>
+      <p class="video-author">Marques Brownlee</p>
+      <p class="video-stats">3.4M views &middot; 6 months ago</p>
+    </div>
+
+    <div class="video-preview">
+      <img src="thumbnails/thumbnail-1.webp" class="thumbnail-img" />
+      <p class="video-title">
+        Talking Tech and <strong>AI</strong> with Google CEO Sundar Pichai!
+      </p>
+      <p class="video-author">Marques Brownlee</p>
+      <p class="video-stats">3.4M views &middot; 6 months ago</p>
+    </div>
   </body>
 </html>
