@@ -22,7 +22,7 @@ main {
 article {
     /* display: inline-block; */
     margin-right: 1rem;
-    width: 10rem;
+    width: 20rem;
     height: 100%;
     border: 1px solid black;
 }
