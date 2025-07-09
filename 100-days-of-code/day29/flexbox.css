@@ -17,7 +17,7 @@ nav {
 main {
     margin-top: 1rem;
     height: 10rem;
-    display: ;
+    display: flex;
     flex-direction: row;
 }
 
