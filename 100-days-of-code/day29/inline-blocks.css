@@ -35,7 +35,7 @@ aside {
 }
 
 footer {
-    clear: both;
+    /* clear: both; */
     height: 2.5rem;
     margin-top: 1rem;
     border: 1px solid black;
