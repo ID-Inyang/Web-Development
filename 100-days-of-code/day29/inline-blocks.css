@@ -20,7 +20,7 @@ main {
 }
 
 article {
-    display: inline;
+    display: inline-block;
     margin-right: 1rem;
     width: 20rem;
     height: 100%;
