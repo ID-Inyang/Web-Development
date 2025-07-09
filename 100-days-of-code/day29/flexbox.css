@@ -22,7 +22,7 @@ main {
 }
 
 article {
-    float: left;
+    /* float: left; */
     margin-right: 1rem;
     width: 20rem;
     height: 100%;
