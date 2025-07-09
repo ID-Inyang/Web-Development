@@ -28,7 +28,7 @@ article {
 }
 
 aside {
-    float: right;
+    display: ;
     width: 8.75rem;
     height: 100%;
     border: 1px solid black;
