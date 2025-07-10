@@ -29,4 +29,6 @@ article {
     overflow-y: auto;
 }
 
-aside
+aside {
+    flex
+}
