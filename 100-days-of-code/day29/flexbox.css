@@ -51,9 +51,9 @@
 }
 
 nav {
-    display: flex;
+    
 }
 
-nav ul {
+nav ul {display: flex;
     list-style-type: none;
 }
