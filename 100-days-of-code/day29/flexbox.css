@@ -32,5 +32,5 @@ article {
 aside {
     flex-grow: 0;
     flex-shrink: 0;
-    flex
+    flex-basis: ;
 }
