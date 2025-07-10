@@ -18,5 +18,5 @@ nav {
 
 main {
     flex-grow: 1;
-    display: ;
+    display: flex;
 }
