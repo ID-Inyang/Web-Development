@@ -59,7 +59,7 @@ nav ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 40px;
+    padd-top: 40px;
     list-style-type: none;
 }
 
