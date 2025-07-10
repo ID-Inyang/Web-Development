@@ -13,6 +13,8 @@
 
 .item1 {
     background-color: rgb(200, 200, 200);
+    grid-column-start: 1;
+    grid-column-end:
 }
 .item2 {
     background-color: rgba(126, 121, 121, 0.562);
