@@ -3,6 +3,7 @@
     grid-template-columns: 100px 300px 200px;
     grid-template-rows: 100px 200px;
     column-gap: 10px;
+    row-gap: 15px;
 }
 
 .item {
