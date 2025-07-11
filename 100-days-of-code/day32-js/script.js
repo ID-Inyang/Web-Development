@@ -1,3 +1,3 @@
 const firstName = 'Alice';
 const lastName = 'Johnson';
-cons
+const cars = 2
