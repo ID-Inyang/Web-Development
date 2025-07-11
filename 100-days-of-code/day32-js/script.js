@@ -1,1 +1,1 @@
-let is
+let isLoggedIn = false
