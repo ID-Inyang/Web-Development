@@ -2,7 +2,7 @@ const grade = 'A';
 
 switch (grade) {
     case A:
-        console.log('')
+        console.log('Excellent work!')
         break;
 
     default:
