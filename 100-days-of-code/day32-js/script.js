@@ -1,6 +1,3 @@
-let isRaining = true;
-let isSunny = false;
+const age = 25;
 
-let email = 'john@gmail.com';
-let hasAtSymbol = email.includes('jane');
-console.log(hasAtSymbol);
+if
