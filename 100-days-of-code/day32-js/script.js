@@ -6,7 +6,7 @@ console.log("=== Welcome to JavaScript Practice! ===");
 // 1. Variables and Data Types
 let yourName = "IDONGESIT"; // Change this to your actual name
 const currentYear = 2025;
-let birthYear = 2000; // Change this to your birth year
+let birthYear = 2001; // Change this to your birth year
 
 console.log("Hello, " + yourName + "!");
 console.log(`You were born in ${birthYear}`);
