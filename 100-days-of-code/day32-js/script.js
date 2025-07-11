@@ -1,7 +1,7 @@
 const grade = 'A';
 
 switch (grade) {
-    case :
+    case A:
         
         break;
 
