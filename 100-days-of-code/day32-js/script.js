@@ -14,5 +14,5 @@ switch (grade) {
         console.log('You need to improve!');
         break;
     default:
-        console.log('')
+        console.log('Invalid grade')
 }
