@@ -8,4 +8,4 @@ let remainer = 17 % 5;
 console.log(remainer);
 
 let result = 5 * (10 - 3) ** 2;
-console.log(result)
+console.log(result);
