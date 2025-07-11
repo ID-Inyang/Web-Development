@@ -14,5 +14,5 @@ switch (grade) {
         console.log('You need to improve!');
         break;
     default:
-        break;
+        
 }
