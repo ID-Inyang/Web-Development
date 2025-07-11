@@ -4,7 +4,7 @@
 console.log("=== Welcome to JavaScript Practice! ===");
 
 // 1. Variables and Data Types
-let yourName = "Id"; // Change this to your actual name
+let yourName = "I"; // Change this to your actual name
 const currentYear = 2025;
 let birthYear = 2000; // Change this to your birth year
 
