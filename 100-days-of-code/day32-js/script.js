@@ -1,3 +1,3 @@
 let email = 'ThankGod@gmail.com';
 let message = "Welcome to JavaScript!";
-console
+console.log(email)
