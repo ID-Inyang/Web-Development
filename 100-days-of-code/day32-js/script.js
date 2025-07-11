@@ -11,7 +11,7 @@ switch (grade) {
         console.log('You passed!');
         break;
     case 'D':
-        console.log('')
+        console.log('You need to improve')
 
     default:
         break;
