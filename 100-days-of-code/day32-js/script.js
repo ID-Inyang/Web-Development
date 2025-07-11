@@ -1,1 +1,1 @@
-const points
+const points = 100
