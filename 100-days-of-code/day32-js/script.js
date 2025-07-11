@@ -1,4 +1,4 @@
-const age = 25;
+const password;
 
 if (age > 18)
 {
