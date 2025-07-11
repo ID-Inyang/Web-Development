@@ -1,2 +1,2 @@
 let email = 'ThankGod@gmail.com';
-let message = "Wel"
+let message = "Welcome to JavaScript!"
