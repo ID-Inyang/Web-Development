@@ -2,4 +2,4 @@ let isRaining = true;
 let isSunny = false;
 
 let email = 'john@gmail.com';
-let hasAt
+let hasAtSymbol = email
