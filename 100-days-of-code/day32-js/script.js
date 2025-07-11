@@ -1,1 +1,1 @@
-let radius
+let radius = 10;
