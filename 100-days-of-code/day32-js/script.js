@@ -1,4 +1,4 @@
-const grade = 'p';
+const grade = 'P';
 
 switch (grade) {
     case 'A':
