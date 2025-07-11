@@ -7,4 +7,4 @@ console.log(area);
 let remainer = 17 % 5;
 console.log(remainer);
 
-let result = 5 * (10 - 3) **2
+let result = 5 * (10 - 3) ** 2;
