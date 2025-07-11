@@ -1,2 +1,2 @@
 let isRaining = true;
-let isSunny
+let isSunny = false
