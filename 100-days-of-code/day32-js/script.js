@@ -1,3 +1,3 @@
 const grade = 85;
 
-if (grade)
+if (grade >= 90)
