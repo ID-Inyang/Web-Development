@@ -1,1 +1,2 @@
-let age;console.log(
+let age;
+console.log(
