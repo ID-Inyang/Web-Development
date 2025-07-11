@@ -4,5 +4,5 @@ if (password.length >= 5)
 {
     console.log('Strong password!');
 } else {
-    console.log
+    console.log('Password too short!');
 }
