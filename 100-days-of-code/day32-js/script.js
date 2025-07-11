@@ -7,5 +7,5 @@ if (grade >= 90) {
 } else if (grade >= 70) {
     console.log('C grade - You passed!');
 } else {
-    console.log()
+    console.log('Need to study more')
 }
