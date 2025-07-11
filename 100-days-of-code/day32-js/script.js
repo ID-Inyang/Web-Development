@@ -1,1 +1,1 @@
-const score
+const scores = [50]
