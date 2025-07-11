@@ -2,5 +2,5 @@ const age = 25;
 const hasLicence = true;
 
 if (age >= 18 && hasLicence) {
-    console.log("")
+    console.log("You can ")
 }
