@@ -4,7 +4,7 @@ for (let i = 0; i < scores.length; i++) {
     console.log('Score:', scores[i]);
 
     if (scores[i] === 0) {
-        console.log('Perfect score found!');
-        conti;
+        continue;
     }
+    console.log('Perfect score found!');
 }
