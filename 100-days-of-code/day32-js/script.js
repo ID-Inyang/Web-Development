@@ -1,5 +1,5 @@
 let isLoggedIn = false;
 
-if (!isLoogedIn) {
-    console.log('Please log in first')
+if (!isLoggedIn) {
+    console.log('Please log in first!');
 }
