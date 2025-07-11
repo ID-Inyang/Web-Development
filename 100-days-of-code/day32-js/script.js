@@ -6,5 +6,5 @@ for (let i = 0; i < scores.length; i++) {
     if (scores[i] === 0) {
         continue;
     }
-    console.log('Valid score');
+    console.log('Valid score: ');
 }
