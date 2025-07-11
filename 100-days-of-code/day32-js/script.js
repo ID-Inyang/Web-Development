@@ -1,3 +1,3 @@
 const grade = 'A';
 
-switch
+switc
