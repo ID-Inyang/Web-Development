@@ -2,4 +2,4 @@ let text = "Hello World";
 
 console.log(text.toUpperCase());
 
-console.log
+console.log(text)
