@@ -1,1 +1,1 @@
-let email = 'Thank'
+let email = 'ThankGod'
