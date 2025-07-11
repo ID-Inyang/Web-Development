@@ -1,3 +1,6 @@
 const age = 25;
 
-if 
+if (age > 18)
+{
+    
+}
