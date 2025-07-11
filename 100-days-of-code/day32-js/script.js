@@ -1,4 +1,4 @@
 let isRaining = true;
 let isSunny = false;
 
-let email = ''
+let email = 'john@'
