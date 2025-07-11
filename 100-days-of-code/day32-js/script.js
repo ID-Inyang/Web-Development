@@ -5,5 +5,5 @@ if (grade >= 90) {
 } else if (grade >= 80) {
     console.log("B grade - Good job!");
 } else if (grade >= 70) {
-    console.log('C')
+    console.log('C grade - You passed!')
 }
