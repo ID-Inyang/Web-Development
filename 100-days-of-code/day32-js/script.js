@@ -1,4 +1,4 @@
 let radius = 10;
 const pi = 3.14;
 
-let area = pi * 
+let area = pi * radius * rad
