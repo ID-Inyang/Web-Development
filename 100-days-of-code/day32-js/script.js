@@ -1,1 +1,1 @@
-let email = 
+let email = ''
