@@ -1,1 +1,1 @@
-let email = 'ThankGod@gmail.com'
+let email = 'ThankGod@gmail.com';
