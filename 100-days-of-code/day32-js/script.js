@@ -3,5 +3,4 @@ let i = 5;
 do {
     console.log('loop: ', i);
     i++;
-} while 
-}
+} while(i)
