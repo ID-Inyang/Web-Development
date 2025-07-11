@@ -1,2 +1,4 @@
 const age = 25;
-const hasLicence
+const hasLicence = true;
+
+if (age)
