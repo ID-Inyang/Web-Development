@@ -1,1 +1,1 @@
-const sco
+const score
