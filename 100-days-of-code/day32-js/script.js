@@ -7,7 +7,8 @@ switch (grade) {
     case 'B':
         console.log('Good job!');
         break;
-    case 'C'
+    case 'C':
+        
 
     default:
         break;
