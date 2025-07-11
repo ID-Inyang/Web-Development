@@ -1,1 +1,3 @@
-const scores = [50, 25, 0, 100, 20, 10]
+const scores = [50, 25, 0, 100, 20, 10];
+
+for (let i)
