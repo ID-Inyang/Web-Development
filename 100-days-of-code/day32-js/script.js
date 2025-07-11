@@ -1,2 +1,2 @@
 const points = 100;
-console
+console.log(points)
