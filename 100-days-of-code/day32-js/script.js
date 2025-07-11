@@ -1,6 +1,6 @@
 const grade = 'A';
 
-switch (grade) {
+switch (key) {
     case value:
         
         break;
