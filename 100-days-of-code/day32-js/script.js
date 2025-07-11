@@ -1,3 +1,3 @@
 let firstName = 'John';
 let lastName = 'Doe';
-let fullName = first
+let fullName = firstName + ''
