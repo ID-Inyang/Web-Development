@@ -1,1 +1,1 @@
-const grade = 
+const grade = 'A'
