@@ -1,3 +1,5 @@
 let isLoggedIn = false;
 
-if (!)
+if (!isLoogedIn) {
+    
+}
