@@ -1,3 +1,3 @@
 let text = "Hello World";
 
-console.log(text.to)
+console.log(text.toUpperCase)
