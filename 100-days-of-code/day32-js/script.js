@@ -1,5 +1,5 @@
 let i = 5;
 
 do {
-    console.log('loop')
+    console.log('loop: ')
 }
