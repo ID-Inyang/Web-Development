@@ -1,1 +1,2 @@
-const age = 25
+const age = 25;
+
