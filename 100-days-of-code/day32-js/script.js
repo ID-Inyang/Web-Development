@@ -13,7 +13,6 @@ switch (grade) {
     case 'D':
         console.log('You need to improve!');
         break;
-
     default:
         break;
 }
