@@ -1,4 +1,4 @@
 const points = 100;
 console.log(points);
 
-points
+points = 50;
