@@ -1,1 +1,1 @@
-const grade = 'A'
+const grade = 'A';
