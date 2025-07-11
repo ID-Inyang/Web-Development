@@ -5,6 +5,7 @@ switch (grade) {
         console.log('Excellent work!');
         break;
     case 'B':
+        console.log
 
     default:
         break;
