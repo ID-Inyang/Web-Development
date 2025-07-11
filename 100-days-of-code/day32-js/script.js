@@ -1,2 +1,3 @@
 const firstName = 'Alice';
-const
+const lastName = 'Johnson';
+cons
