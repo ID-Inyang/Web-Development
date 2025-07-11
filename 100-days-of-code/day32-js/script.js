@@ -1,1 +1,2 @@
-const points = 100
+const points = 100;
+console
