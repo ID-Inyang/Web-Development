@@ -1,3 +1,10 @@
 const grade = 'A';
 
-switc
+switch (key) {
+    case value:
+        
+        break;
+
+    default:
+        break;
+}
