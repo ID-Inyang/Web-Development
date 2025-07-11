@@ -23,7 +23,7 @@ if (age >= 18) {
 }
 
 // 4. String Methods
-let email = "idinyang@gmail.com";
+let email = "idinyang9@gmail.com";
 console.log("Email in uppercase:", email.toUpperCase());
 console.log("@ symbol position:", email.indexOf('@'));
 console.log("Domain:", email.slice(email.indexOf('@') + 1));
