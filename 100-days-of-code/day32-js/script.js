@@ -1,4 +1,4 @@
-const grade = 85 + ;
+const grade = 85 + 15;
 
 if (grade >= 90) {
     console.log('A grade - Excellent!');
