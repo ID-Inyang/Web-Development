@@ -5,5 +5,6 @@ for (let i = 0; i < scores.length; i++) {
 
     if (scores[i] === 100) {
         console.log('Perfect score found!');
+        bre
     }
 }
