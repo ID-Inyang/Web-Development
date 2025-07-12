@@ -1,2 +1,2 @@
 //Arrays
-let fruits = ["apple", "banana", "orange"]
+let fruits = ["apple", "banana", "orange"];
