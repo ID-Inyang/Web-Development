@@ -1,2 +1,2 @@
 //Arrays
-let fruits = ["apple", "banana", ""]
+let fruits = ["apple", "banana", "orange"]
