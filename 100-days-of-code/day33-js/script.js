@@ -1,2 +1,2 @@
 //Arrays
-let fruits = 
+let fruits = []
