@@ -1,2 +1,2 @@
 var interestRate;
-interestRate
+interestRate = .03;
