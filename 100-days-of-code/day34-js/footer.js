@@ -1,1 +1,1 @@
-document.write("Copyright " + new Date().get)
+document.write("Copyright " + new Date().getFullYear)
