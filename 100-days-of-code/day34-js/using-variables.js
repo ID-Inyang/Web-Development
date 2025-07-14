@@ -1,3 +1,3 @@
 var interestRate;
 interestRate = .03;
-document.write(i)
+document.write(interestRate);
