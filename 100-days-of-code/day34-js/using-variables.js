@@ -6,5 +6,5 @@ var interestRate;
 interestRate = .03;
 // document.write(interestRate);
 
-var hexValue = 0x45f;
+var hexValue = ;
 document.write(hexValue);
