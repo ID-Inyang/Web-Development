@@ -1,5 +1,5 @@
 var firstName;
-firstName = prompt("P")
+firstName = prompt("Please tell me your first name")
 
 var interestRate;
 interestRate = .03;
