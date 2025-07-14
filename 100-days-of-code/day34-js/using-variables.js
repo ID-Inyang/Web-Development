@@ -7,4 +7,4 @@ interestRate = .03;
 document.write(interestRate);
 
 var hexValue = 0x45;
-doc
+document.wr
