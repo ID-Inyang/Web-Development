@@ -1,1 +1,1 @@
-document.write("Copyright " + new Date)
+document.write("Copyright " + new Date())
