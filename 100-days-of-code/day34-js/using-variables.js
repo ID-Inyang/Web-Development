@@ -1,6 +1,6 @@
 var firstName;
 firstName = prompt("Please tell me your first name:");
-alert("Welcome")
+alert("Welcome to my website, ")
 
 var interestRate;
 interestRate = .03;
