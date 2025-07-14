@@ -6,7 +6,7 @@ var interestRate;
 interestRate = .03;
 // document.write(interestRate);
 
-let message = 
+let message = "The"
 
 var hexValue = '';
 document.write(hexValue);
