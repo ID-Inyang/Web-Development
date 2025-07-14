@@ -9,7 +9,7 @@ interestRate = .03;
 let message = "The double quotation mark (\") encloses this string.";
 document.write(message);
 
-alert("This is line 1 .\nSo what. This is ")
+alert("This is line 1 .\nSo what. This is line 2.")
 
 var hexValue = '';
 document.write(hexValue);
