@@ -6,7 +6,7 @@ var interestRate;
 interestRate = .03;
 // document.write(interestRate);
 
-let message = "The double quotation mark (\") encloses thsi "
+let message = "The double quotation mark (\") encloses this string."
 
 var hexValue = '';
 document.write(hexValue);
