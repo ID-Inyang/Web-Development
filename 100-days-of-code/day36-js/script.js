@@ -1,1 +1,1 @@
-var pre
+var preTipTotal
