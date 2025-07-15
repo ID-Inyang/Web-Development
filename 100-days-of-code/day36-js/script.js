@@ -4,4 +4,4 @@ var v3 = "testing";
 var v4 = false;
 var v5 = 0;
 var v6 = "";
-var leftOperand = eval(prompt("Enter the left operand (a value or expression):", tr))
+var leftOperand = eval(prompt("Enter the left operand (a value or expression):", true));
