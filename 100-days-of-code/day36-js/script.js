@@ -1,1 +1,1 @@
-let firstVariable = 
+let firstVariable = 4;
