@@ -5,5 +5,5 @@ var message2 = "\nYour total bill is ";
 var totalBill = preTipTotal + tipAmount;
 // alert(message1 + tipAmount + message2 + totalBill);
 
-console.log(100 == "100")
+console.log(pre)
 console.log("Done")
