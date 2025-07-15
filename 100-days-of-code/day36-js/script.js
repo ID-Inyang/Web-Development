@@ -1,2 +1,2 @@
 var preTipTotal = 10.00;
-var tipAmount = 
+var tipAmount = preT
