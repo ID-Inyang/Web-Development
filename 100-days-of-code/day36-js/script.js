@@ -6,4 +6,4 @@ var totalBill = preTipTotal + tipAmount;
 // alert(message1 + tipAmount + message2 + totalBill);
 
 console.log(100 == "100")
-con
+console.log()
