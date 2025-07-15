@@ -5,6 +5,6 @@ var v4 = false;
 var v5 = 0;
 var v6 = "";
 var leftOperand = eval(prompt("Enter the left operand (a value or expression):", v3));
-var rightOperand = eval(prompt("Enter the right operand (a value or expression):", v4));
+var rightOperand = eval(prompt("Enter the right operand (a value or expression):", v));
 var result = leftOperand && rightOperand;
 alert(result);
