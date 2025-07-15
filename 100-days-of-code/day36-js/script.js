@@ -1,1 +1,1 @@
-var v1 
+var v1 = true;
