@@ -5,4 +5,4 @@ var v4 = false;
 var v5 = 0;
 var v6 = "";
 var leftOperand = eval(prompt("Enter the left operand (a value or expression):", true));
-var rightOperand = eval(prompt("Enter the right operand", true));
+var rightOperand = eval(prompt("Enter the right operand (a value", true));
