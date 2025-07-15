@@ -1,2 +1,2 @@
 let firstVariable = 4;
-let secondVariable = fi
+let secondVariable = firstVariable++
