@@ -1,2 +1,2 @@
 var v1 = true;
-var v2
+var v2 = 10;
