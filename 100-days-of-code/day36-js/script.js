@@ -1,4 +1,4 @@
-var preTipTotal = 0 == false;
+var preTipTotal = nu == false;
 var tipAmount = preTipTotal * 0.15;
 var message1 = "Your tip is ";
 var message2 = "\nYour total bill is ";
