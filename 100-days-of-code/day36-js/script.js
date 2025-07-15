@@ -1,1 +1,1 @@
-var preTipTotal
+var preTipTotal = 10.00;
