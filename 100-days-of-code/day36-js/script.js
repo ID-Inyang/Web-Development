@@ -1,4 +1,4 @@
-let firstVariable = 4;
+let firstVariable = "";
 let secondVariable = firstVariable++;
 
 console.log("First Variable:", firstVariable);
