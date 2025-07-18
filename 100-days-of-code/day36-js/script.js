@@ -1,2 +1,3 @@
-let v1 = 3 + 5 * 2;
-console.log(v1)
+(function (myName) {
+    console.log("Hello, " + this.myName);
+})("ID. Inyang");
