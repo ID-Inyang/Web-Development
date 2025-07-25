@@ -1,1 +1,1 @@
-let myTitle = document.
+let myTitle = document.getE
