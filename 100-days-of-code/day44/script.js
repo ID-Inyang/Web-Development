@@ -1,1 +1,1 @@
-let myTitle = do
+let myTitle = document.
