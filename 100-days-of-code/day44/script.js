@@ -3,4 +3,4 @@ myTitle.innerText = "This is the DOM heading";
 
 console.log(myTitle);
 
-let paragraph = document.getElementd
+let paragraph = document.getElements
