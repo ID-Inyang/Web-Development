@@ -1,5 +1,5 @@
 let myTitle = window.do
-    windows.document.getElementById("title");
+    window.document.getElementById("title");
 myTitle.innerText = "This is the DOM heading";
 
 console.log(myTitle);
