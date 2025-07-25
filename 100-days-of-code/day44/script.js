@@ -1,4 +1,4 @@
-let myTitle = w
+let myTitle = win
     windows.document.getElementById("title");
 myTitle.innerText = "This is the DOM heading";
 
