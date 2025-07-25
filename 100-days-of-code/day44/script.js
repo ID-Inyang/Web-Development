@@ -1,1 +1,1 @@
-let myTitle = document.getElementById("title")
+let myTitle = document.getElementById("title");
