@@ -1,1 +1,1 @@
-let myTitle = document.getE
+let myTitle = document.getElementById
