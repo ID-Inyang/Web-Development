@@ -1,2 +1,2 @@
 let myTitle = document.getElementById("title");
-myti
+myTitle.inner
