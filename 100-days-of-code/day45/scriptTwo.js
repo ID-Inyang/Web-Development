@@ -8,5 +8,5 @@ inputID.addEventListener("input", function () {
     textArea.innerText = inputID.value;
 
     let count = inputID.value.length;
-    p.innerText += 
+    p.innerText += count;
 })
