@@ -6,6 +6,6 @@ myForm.addEventListener("submit", function (e) {
     emailFromuser = emailText.value;
 
     if (emailFromuser.includes("@")) {
-        alee
+        alert
     }
 })
