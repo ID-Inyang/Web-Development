@@ -3,5 +3,5 @@ let textArea = document.getElementById("textArea");
 let inputID = document.getElementById("inputId");
 
 inputID.addEventListener("input", function () {
-    textArea.inneT = inputID.value;
+    textArea.innerText = inputID.value;
 })
