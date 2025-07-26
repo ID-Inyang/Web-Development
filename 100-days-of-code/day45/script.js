@@ -1,1 +1,1 @@
-let dummyText = docume
+let dummyText = document
