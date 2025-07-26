@@ -12,4 +12,5 @@ function showDialog() {
     dummyText.innerText = "This has been replaced by the real content " + myname;
 }
 
-button.addEventListener("click", showDialog)
+button.addEventListener("click", showDialog);
+
