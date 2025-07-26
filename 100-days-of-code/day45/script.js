@@ -9,7 +9,7 @@ let input = document.getElementById("inputId");
 function showDialog() {
     let myname = input.value;
     console.log(myname);
-    dummyText.innerText = "This has been replaced by the real content " + ;
+    dummyText.innerText = "This has been replaced by the real content " + myname;
 }
 
 button.addEventListener("click", showDialog)
