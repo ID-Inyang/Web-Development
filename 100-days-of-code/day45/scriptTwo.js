@@ -19,7 +19,7 @@ let myDiv = document.getElementById("myDiv");
 let toggleBtn = document.getElementById("toogleBtn");
 
 toggleBtn.addEventListener("click", function () {
-    if (myDiv.style.display) {
+    if (myDiv.style.display ) {
         
     }
 })
