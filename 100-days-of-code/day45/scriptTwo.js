@@ -1,1 +1,0 @@
-let textArea = document.getElementById("")
