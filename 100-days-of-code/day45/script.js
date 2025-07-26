@@ -6,7 +6,7 @@ console.log(button);
 
 let input = document.getElementById("inputId");
 
-let name = input.val
+let name = input.ariaValueMax;
 
 button.addEventListener("click", function () {
     dummyText.innerText = "This has been replaced by the real content";
