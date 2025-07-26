@@ -11,7 +11,7 @@ paragraphClass[0].style.color = 'lightblue';
 
 let inputID = window.document.getElementById("inputId");
 console.log(inputID);
-inputID.value = 'Enter your name';
+inputID.pl = 'Enter your name';
 
 let buttonTag = document.getElementsByTagName("button");
 buttonTag[0].innerText = "DOM button update";
