@@ -1,2 +1,2 @@
 let dummyText = document.getElementById("p");
-console.log
+console.log()
