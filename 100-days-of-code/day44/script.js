@@ -9,7 +9,7 @@ console.log(paragraphClass[0]);
 paragraphClass[0].textContent = "This paragraph has been changed by the DOM";
 paragraphClass[0].style.color = 'lightblue';
 
-let input = document.getElementById("inputId");
+let input = window.document.getElementById("inputId");
 console.log(input);
 // input.value = 'Enter your name';
 
