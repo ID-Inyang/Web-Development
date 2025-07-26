@@ -11,6 +11,6 @@ inputID.addEventListener("input", function () {
     p.innerText = count;
 
     if (count >= 20) {
-        alert("You can only type a maximum of 25 characters")
+        alert("You can only type a maximum of 25 characters!")
     }
 })
