@@ -1,3 +1,3 @@
 let textArea = document.getElementById("textArea");
 
-letinput
+let input
