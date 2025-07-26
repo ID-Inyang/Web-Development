@@ -10,6 +10,7 @@ paragraphClass[0].textContent = "This paragraph has been changed by the DOM";
 paragraphClass[0].style.color = 'lightblue';
 
 let input = document.getElementById("inputId");
+
 // input.value = 'Enter your name';
 
 let buttonTag = document.getElementsByTagName("button");
