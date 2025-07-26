@@ -16,6 +16,6 @@ myForm.addEventListener("submit", function (e) {
 let textAreaId = document.getElementById("textAreaId");
 textAreaId.addEventListener("keydown", function (e) {
     
-    if(e.key === )
+    if(e.key === "Enter")
 
 })
