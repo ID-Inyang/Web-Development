@@ -16,4 +16,4 @@ inputID.addEventListener("input", function () {
 })
 
 let myDiv2 = document.getElementById("myDiv");
-let toggleBtn = document.getElementById("toogleBT")
+let toggleBtn = document.getElementById("toogleBtn")
