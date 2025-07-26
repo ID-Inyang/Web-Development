@@ -1,4 +1,4 @@
-let mtyForm = document.getElementById("myform");
+let myForm = document.getElementById("myform");
 let emailText = document.getElementById("emailText");
 
 myForm.addEventListener("submit", function (e) {
