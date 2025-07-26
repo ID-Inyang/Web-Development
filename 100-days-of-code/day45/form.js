@@ -17,7 +17,7 @@ let textAreaId = document.getElementById("textAreaId");
 textAreaId.addEventListener("keydown", function (e) {
     
     if (e.key === "Enter") {
-        alert(textAreaId)
+        alert(textAreaId.inner)
     }
 
 })
