@@ -1,1 +1,1 @@
-let dummyText = document.getElementById
+let dummyText = document.getElementById(p)
