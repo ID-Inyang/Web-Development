@@ -5,5 +5,7 @@ myForm.addEventListener("submit", function (e) {
     e.preventDefault();
     emailFromuser = emailText.value;
 
-    if (emailFromuser.includes("@"))
+    if (emailFromuser.includes("@")) {
+        
+    }
 })
