@@ -7,7 +7,7 @@ console.log(button);
 let input = document.getElementById("inputId");
 
 let name = input.value;
-console.log
+console.log(name)
 
 button.addEventListener("click", function () {
     dummyText.innerText = "This has been replaced by the real content";
