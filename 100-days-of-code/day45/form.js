@@ -18,7 +18,7 @@ textAreaId.addEventListener("keydown", function (e) {
     
     if (e.key === "Enter") {
         alert(textAreaId.innerText);
-        alert(2027)
+        alert(2027);
     }
 
 })
