@@ -16,7 +16,7 @@ inputID.addEventListener("input", function () {
 })
 
 let myDiv = document.getElementById("myDiv");
-let toggleBtn = document.getElementById("toogleBtn");
+let toggleBtn = document.getElementById("toggleBtn");
 
 toggleBtn.addEventListener("click", function () {
     if (myDiv.style.display === "none") {
