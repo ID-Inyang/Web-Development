@@ -1,1 +1,1 @@
-let textArea = document
+let textArea = document.
