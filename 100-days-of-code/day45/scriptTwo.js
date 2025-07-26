@@ -20,6 +20,6 @@ let toggleBtn = document.getElementById("toogleBtn");
 
 toggleBtn.addEventListener("click", function () {
     if (myDiv.style.display === "none") {
-        myDiv.style.display = "block"
+        myDiv.style.display = "block";
     }
 })
