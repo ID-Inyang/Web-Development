@@ -4,7 +4,7 @@ console.log(dummyText);
 let button = document.getElementById("btn");
 console.log(button);
 
-let input = document.getElementById("inputId")
+let input = document.getElementById("inputId");
 
 button.addEventListener("click", function () {
     dummyText.innerText = "This has been replaced by the real content";
