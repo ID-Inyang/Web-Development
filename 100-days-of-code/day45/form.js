@@ -5,5 +5,5 @@ myForm.addEventListener("submit", function (e) {
     e.preventDefault();
     emailFromuser = emailText.value;
 
-    if (email)
+    if (emailFromuser)
 })
