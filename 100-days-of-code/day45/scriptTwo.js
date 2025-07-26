@@ -7,5 +7,5 @@ let p = document.getElementById("p");
 inputID.addEventListener("input", function () {
     textArea.innerText = inputID.value;
 
-    let count = inputID.value.length;
+    let count = inputID.value.length;p
 })
