@@ -16,6 +16,6 @@ console.log(input);
 let buttonTag = document.getElementsByTagName("button");
 // buttonTag[0].innerText = "DOM button update";
 
-function showAlert(){
+function showAlert(userName){
     alert("Welcome to UpSkill " + userName);
 }
