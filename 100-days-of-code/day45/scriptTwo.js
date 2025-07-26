@@ -15,4 +15,4 @@ inputID.addEventListener("input", function () {
     }
 })
 
-let myDiv2 = document.getElementById("myDiv")
+let myDiv2 = document.getElementById("myDiv");
