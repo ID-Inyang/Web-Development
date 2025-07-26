@@ -7,5 +7,5 @@ console.log(button);
 // dummyText.innerText = ;
 
 button.addEventListener("click", function () {
-    dummyText.innerText = 
+    dummyText.innerText = "This has been replaced by the real content"
 })
