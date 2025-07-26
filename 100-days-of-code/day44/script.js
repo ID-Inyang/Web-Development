@@ -13,10 +13,10 @@ let inputID = window.document.getElementById("inputId");
 console.log(inputID);
 inputID.placeholder = 'Enter your name';
 
-let buttonTag = document.getElementsByTagName("button");
-buttonTag[0].innerText = "DOM button update";
+
 
 function showAlert(userName){
     alert("Welcome to UpSkill " + userName);
-}
+}let buttonTag = document.getElementsByTagName("button");
+buttonTag[0].innerText = "DOM button update";
 buttonTag[0].onclick = showAlert(inputID.value);
