@@ -17,5 +17,5 @@ button.addEventListener("click", showDialog);
 let divBlock = document.getElementById("myDiv");
 
 divBlock.addEventListener("mouseover", function () {
-    divBlock.style.backgroundColor = "light"
+    divBlock.style.backgroundColor = "lightgreen"
 })
