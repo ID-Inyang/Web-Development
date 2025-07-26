@@ -10,7 +10,7 @@ let myname = input.value;
 console.log(myname);
 
 function showDialog() {
-    let 
+    let myname
 }
 
 button.addEventListener("click", function () {
