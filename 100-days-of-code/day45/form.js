@@ -8,4 +8,5 @@ myForm.addEventListener("submit", function (e) {
     if (emailFromuser.includes("@")) {
         alert("The Email is Valid");
     }
+    
 })
