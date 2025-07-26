@@ -11,7 +11,7 @@ let input = document.getElementById("inputId");
 function showDialog() {
     let myname = input.value;
     console.log(myname);
-    dummyText
+    dummyText.innerText
 }
 
 button.addEventListener("click", function () {
