@@ -22,4 +22,5 @@ toggleBtn.addEventListener("click", function () {
     if (myDiv.style.display === "none") {
         myDiv.style.display = "block";
     }
+    else
 })
