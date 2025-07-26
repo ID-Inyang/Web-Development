@@ -11,7 +11,7 @@ let input = document.getElementById("inputId");
 function showDialog() {
     let myname = input.value;
     console.log(myname);
-    dummyText.innerText = ""
+    dummyText.innerText = "This has been replaced by the real content"
 }
 
 button.addEventListener("click", function () {
