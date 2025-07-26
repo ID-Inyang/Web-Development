@@ -13,4 +13,4 @@ myForm.addEventListener("submit", function (e) {
     }
 })
 
-let textAreaId
+let textAreaId = document
