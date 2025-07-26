@@ -13,7 +13,7 @@ let input = document.getElementById("inputId");
 input.value = 'Enter your name';
 
 let buttonTag = document.getElementsByTagName("button");
-buttonTag.innerHTML = "DOM button update"
+buttonTag.inner = "DOM button update"
 
 function showAlert(){
     alert("Welcome to UpSkill " + userName);
