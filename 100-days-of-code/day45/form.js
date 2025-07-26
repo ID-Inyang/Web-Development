@@ -3,5 +3,5 @@ let emailText = document.getElementById("emailText");
 
 myForm.addEventListener("submit", function (e) {
     e.preventDefault();
-    emailFromuser
+    emailFromuser =
 })
