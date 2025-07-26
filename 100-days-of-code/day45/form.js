@@ -1,2 +1,2 @@
 let form = document.getElementById("myform");
-let emailText = 
+let emailText = document
