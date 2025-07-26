@@ -1,1 +1,1 @@
-let textArea = document.createElement
+let textArea = document.getElementById
