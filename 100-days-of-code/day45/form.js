@@ -1,1 +1,1 @@
-let form = document.getElementById("myform")
+let form = document.getElementById("myform");
