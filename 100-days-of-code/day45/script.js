@@ -1,4 +1,4 @@
 let dummyText = document.getElementById("p");
 console.log(dummyText);
 
-dummyText.inn
+dummyText.innerText = 
