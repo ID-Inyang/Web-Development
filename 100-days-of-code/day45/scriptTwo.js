@@ -14,3 +14,4 @@ inputID.addEventListener("input", function () {
         alert("You can only type a maximum of 25 characters!")
     }
 })
+
