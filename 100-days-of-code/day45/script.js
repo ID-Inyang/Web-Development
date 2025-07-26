@@ -6,7 +6,7 @@ console.log(button);
 
 let input = document.getElementById("inputId");
 
-let name = input.value;
+let myname = input.value;
 console.log(myname);
 
 button.addEventListener("click", function () {
