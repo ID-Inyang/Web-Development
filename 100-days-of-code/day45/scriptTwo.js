@@ -10,5 +10,5 @@ inputID.addEventListener("input", function () {
     let count = inputID.value.length;
     p.innerText = count;
 
-    if
+    if ()
 })
