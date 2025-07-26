@@ -21,5 +21,5 @@ divBlock.addEventListener("mouseover", function () {
 })
 
 divBlock.addEventListener("mouseout", function () {
-    divBlock.style.backgroundColor = "b"
+    divBlock.style.backgroundColor = "lightblue"
 })
