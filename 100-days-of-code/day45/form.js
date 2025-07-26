@@ -13,4 +13,4 @@ myForm.addEventListener("submit", function (e) {
     }
 })
 
-let textAreaId = document.getElementById("text")
+let textAreaId = document.getElementById("textArea")
