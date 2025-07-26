@@ -11,6 +11,6 @@ inputID.addEventListener("input", function () {
     p.innerText = count;
 
     if (count >= 20) {
-        
+        alert
     }
 })
