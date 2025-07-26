@@ -19,3 +19,7 @@ let divBlock = document.getElementById("myDiv");
 divBlock.addEventListener("mouseover", function () {
     divBlock.style.backgroundColor = "lightgreen"
 })
+
+divBlock.addEventListener("mouseover", function () {
+    divBlock.style.backgroundColor = "lightgreen"
+})
