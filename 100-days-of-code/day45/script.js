@@ -14,4 +14,4 @@ function showDialog() {
 
 button.addEventListener("click", showDialog);
 
-let di
+let div
