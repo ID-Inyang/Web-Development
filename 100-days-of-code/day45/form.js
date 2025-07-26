@@ -3,7 +3,7 @@ let emailText = document.getElementById("emailText");
 
 myForm.addEventListener("submit", function (e) {
     e.preventDefault();
-    emailFromuser = emailText.value;
+   let emailFromuser = emailText.value;
 
     if (emailFromuser.includes("@")) {
         alert("The Email is Valid");
