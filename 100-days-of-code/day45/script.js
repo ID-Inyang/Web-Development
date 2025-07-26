@@ -9,7 +9,7 @@ let input = document.getElementById("inputId");
 
 
 function showDialog() {
-    let myname = let myname = input.value;
+    let myname = input.value;
 console.log(myname);
 }
 
