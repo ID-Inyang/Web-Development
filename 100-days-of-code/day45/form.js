@@ -12,3 +12,5 @@ myForm.addEventListener("submit", function (e) {
         alert("The Email is not valid");
     }
 })
+
+let
