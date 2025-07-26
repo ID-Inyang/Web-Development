@@ -1,3 +1,3 @@
 let textArea = document.getElementById("textArea");
 
-let inputID = document.getElementById("in")
+let inputID = document.getElementById("inpu")
