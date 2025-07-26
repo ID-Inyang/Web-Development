@@ -23,6 +23,6 @@ toggleBtn.addEventListener("click", function () {
         myDiv.style.display = "block";
     }
     else {
-        myDiv.style.display = ""
+        myDiv.style.display = "none";
     }
 })
