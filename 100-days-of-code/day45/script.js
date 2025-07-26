@@ -6,11 +6,11 @@ console.log(button);
 
 let input = document.getElementById("inputId");
 
-let myname = input.value;
-console.log(myname);
+
 
 function showDialog() {
-    let myname = 
+    let myname = let myname = input.value;
+console.log(myname);
 }
 
 button.addEventListener("click", function () {
