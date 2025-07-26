@@ -15,3 +15,4 @@ inputID.addEventListener("input", function () {
     }
 })
 
+let myDiv
