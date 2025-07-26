@@ -9,6 +9,6 @@ myForm.addEventListener("submit", function (e) {
         alert("The Email is Valid");
     }
     else {
-        alert("The Email is not ")
+        alert("The Email is not valid")
     }
 })
