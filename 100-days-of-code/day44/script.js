@@ -14,7 +14,7 @@ console.log(input);
 // input.value = 'Enter your name';
 
 let buttonTag = document.getElementsByTagName("button");
-buttonTag[0].innerText = "DOM button update";
+// buttonTag[0].innerText = "DOM button update";
 
 function showAlert(){
     alert("Welcome to UpSkill " + userName);
