@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ultimate Streaming Explorer</title>
+<style>
+  /* Reset + Base */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0; font-family: 'Nunito', sans-serif;
+    background: #f0f3f8;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  a {
+    text-decoration: none; color: inherit;
+  }
+  
+  /* Header */
+  header {
+    background: #1e1e2f;
+    color: #eee;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  }
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #61dafb;
+    user-select: none;
+  }
+  nav {
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+  nav a {
+    padding: 0.5rem 0.8rem;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    user-select: none;
+  }
+  nav a:hover,
+  nav a.active {
+    background: #61dafb;
+    color: #1e1e2f;
+  }
+  .profile-icon {
+    width: 36px;
+    height: 36px;
+    background: #61dafb;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #1e1e2f;
+    user-select: none;
+    cursor: pointer;
+  }
+
+  /* Theme toggle */
+  #theme-toggle {
+    background: transparent;
+    border: none;
+    color: #61dafb;
+    font-size: 1.4rem;
+    cursor: pointer;
+    user-select: none;
+    padding: 0.2rem 0.6rem;
+    border-radius: 14px;
+    transition: background-color 0.3s ease;
+  }
+  #theme-toggle:hover {
+    background-color: #61dafb33;
+  }
+
+  /* Main container */
+  main {
+    padding: 1rem 2rem;
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    grid-gap: 1.5rem;
+    margin-top: 1rem;
+    min-width: 320px;
+  }
+
+  /* Filter Panel */
+  aside.filters {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 6px 15px rgb(0 0 0 / 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    position: sticky;
+    top: 70px;
+    height: fit-content;
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+  }
+  .filter-group {
+    margin-bottom: 0.4rem;
+  }
+  .filter-group h3 {
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #555;
+    user-select: none;
+  }
+  .filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .filter-button {
+    padding: 0.4rem 1rem;
+    border: none;
+    background: #dedede;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    user-select: none;
+  }
+  .filter-button.active {
+    background: #61dafb;
+    color: #fff;
+  }
+  .filter-button:focus-visible {
+    outline: 3px solid #61dafb;
+    outline-offset: 2px;
+  }
+
+  /* Slider Filters */
+  .slider-container {
+    padding: 0.2rem 0;
+  }
+  label {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+    display: block;
+    color: #555;
+    user-select: none;
+  }
+  input[type="range"] {
+    width: 100%;
+    -webkit-appearance: none;
+    height: 8px;
+    border-radius: 5px;
+    background: #ddd;
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 6px;
+    transition: background 0.3s ease;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #61dafb;
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+  input[type="range"]:active::-webkit-slider-thumb {
+    background-color: #21a1f1;
+  }
+  input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #61dafb;
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
+  }
+  .range-values {
+    font-size: 0.9rem;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.1rem;
+    user-select: none;
+  }
+
+  /* Content Area */
+  section.content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 1.1rem;
+    align-content: start;
+  }
+  .panel {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    box-shadow: 0 6px 15px rgb(0 0 0 / 0.1);
+    display: flex;
+    flex-direction: column;
+    min-height: 280px;
+    position: relative;
+    user-select: none;
+  }
+  .panel h2 {
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+    color: #222;
+    font-size: 1.3rem;
+  }
+
+  /* Animated Counters */
+  .counter {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #61dafb;
+    margin-top: 0.3rem;
+    letter-spacing: 1.4px;
+  }
+  .counters-group {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  .counters-group > div {
+    text-align: center;
+    min-width: 120px;
+  }
+
+  /* Genre Heatmap */
+  .heatmap-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 4px;
+  }
+  .heatmap-cell {
+    border-radius: 12px;
+    background: var(--cell-bg, #ddd);
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+    position: relative;
+    transition: background-color 0.4s ease, transform 0.2s ease;
+    box-shadow: 0 2px 10px rgb(0 0 0 / 0.1);
+    user-select: none;
+  }
+  .heatmap-cell:hover, 
+  .heatmap-cell:focus-visible {
+    filter: brightness(1.2);
+    box-shadow: 0 6px 20px rgb(0 0 0 / 0.25);
+    transform: scale(1.05);
+    outline: none;
+    z-index: 10;
+  }
+  .heatmap-cell span:first-child {
+    font-size: 1.05rem;
+  }
+  .heatmap-cell span.views-count {
+    font-size: 0.8rem;
+    margin-top: 5px;
+    font-weight: 600;
+  }
+  .heatmap-tooltip {
+    position: absolute;
+    background: #222;
+    color: #ddd;
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 50;
+    user-select: none;
+    max-width: 220px;
+  }
+  .heatmap-cell:hover .heatmap-tooltip,
+  .heatmap-cell:focus-visible .heatmap-tooltip {
+    opacity: 1;
+  }
+
+  /* Platform Bar Chart */
+  .bar-chart {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: center;
+    padding-top: 10px;
+  }
+  .bar {
+    display: flex;
+    height: 28px;
+    border-radius: 16px;
+    background: #ddd;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+    transition: filter 0.3s ease;
+  }
+  .bar:hover, .bar:focus-visible {
+    filter: brightness(1.15);
+    outline: none;
+  }
+  .bar-segment {
+    height: 100%;
+    transition: width 0.6s ease;
+  }
+  /* Platform colors */
+  .netflix { background: #e50914; }
+  .prime { background: #00a8e1; }
+  .hulu { background: #4db848; }
+  .disney { background: #113ccf; }
+  /* Labels */
+  .bar-label {
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .bar-value {
+    position: absolute;
+    right: 8px;
+    color: white;
+    font-weight: 700;
+    text-shadow: 0 0 3px rgba(0,0,0,0.7);
+    user-select: none;
+    pointer-events: none;
+    font-size: 0.9rem;
+    line-height: 28px;
+  }
+
+  /* Pie Chart */
+  .pie-chart-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    user-select: none;
+  }
+  svg.pie-chart {
+    width: 180px;
+    height: 180px;
+    transform: rotate(-90deg);
+    filter: drop-shadow(0 0 1px rgba(0,0,0,0.15));
+  }
+  .legend {
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    color: #555;
+    user-select: none;
+  }
+  .legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  /* Leaderboard Panel */
+  .leaderboard {
+    min-height: 350px;
+  }
+  #leaderboard-list div {
+    margin-bottom: 1rem;
+  }
+  .leaderboard-bar {
+    height: 18px;
+    background: linear-gradient(90deg,#61dafb 70%,#21a1f1 100%);
+    border-radius: 8px;
+    transition: width 0.7s cubic-bezier(.42,0,.58,1.1);
+  }
+
+  /* Modal */
+  #details-modal {
+    display: none; /* hidden by default */
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(30,34,50,0.88);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    overflow-y: auto;
+  }
+  #details-modal.visible {
+    display: flex;
+  }
+  #details-modal > div {
+    background: #fff;
+    padding: 2rem 2.5rem;
+    border-radius: 18px;
+    box-shadow: 0 12px 40px #0003;
+    max-width: 420px;
+    width: 100%;
+    position: relative;
+    color: #222;
+  }
+  #close-modal {
+    position: absolute;
+    top: 12px; right: 18px;
+    font-size: 1.8em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #555;
+    user-select: none;
+    transition: color 0.3s ease;
+  }
+  #close-modal:hover,
+  #close-modal:focus {
+    color: #e63946;
+    outline: none;
+  }
+  #modal-content h2 {
+    margin-top: 0;
+  }
+  #modal-content p {
+    line-height: 1.4;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    main {
+      grid-template-columns: 1fr;
+      padding: 1rem;
+    }
+    aside.filters {
+      position: relative;
+      top: auto;
+      max-height: none;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+    }
+    section.content {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Dark mode */
+  body.dark {
+    background: #181a20;
+    color: #efefef;
+  }
+  body.dark .panel {
+    background: #232632;
+    color: #efefef;
+  }
+  body.dark header {
+    background: #282c34;
+  }
+  body.dark .logo, 
+  body.dark nav a.active {
+    color: #61dafb;
+  }
+  body.dark nav a:hover {
+    background: #61dafb33;
+  }
+  body.dark .filter-button {
+    background: #444;
+    color: #bbb;
+  }
+  body.dark .filter-button.active {
+    background: #61dafb;
+    color: #fff;
+  }
+  body.dark input[type="range"] {
+    background: #444;
+  }
+  body.dark input[type="range"]::-webkit-slider-thumb {
+    background: #61dafb;
+  }
+  body.dark .heatmap-cell {
+    box-shadow: 0 2px 12px rgb(97 218 251 / 0.8);
+  }
+  body.dark .heatmap-tooltip {
+    background: #111;
+    color: #a3d2f9;
+  }
+  body.dark .bar {
+    background: #444;
+  }
+  body.dark .bar-value {
+    text-shadow: 0 0 5px rgba(97,218,251,0.8);
+  }
+  body.dark #details-modal > div {
+    background: #232632;
+    color: #efefef;
+  }
+  body.dark #close-modal {
+    color: #bbb;
+  }
+  body.dark #close-modal:hover {
+    color: #e63946;
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="logo" tabindex="0" aria-label="Ultimate Streaming Explorer logo">Ultimate Streaming Explorer</div>
+  <nav aria-label="Primary navigation">
+    <a href="#" class="active" tabindex="0">Dashboard</a>
+    <a href="#" tabindex="0">Quiz</a>
+    <a href="#" tabindex="0">Leaderboard</a>
+    <a href="#" tabindex="0">Trends</a>
+    <a href="#" tabindex="0">About</a>
+  </nav>
+  <button id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode" tabindex="0">🌙</button>
+</header>
+
+<main>
+  <aside class="filters" aria-label="Filters Panel">
+    <div class="filter-group">
+      <h3>Platform</h3>
+      <div class="filter-buttons" id="platform-filters" role="radiogroup" aria-label="Platform Filters">
+        <button class="filter-button active" data-value="all" role="radio" aria-checked="true" tabindex="0">All</button>
+        <button class="filter-button" data-value="Netflix" role="radio" aria-checked="false" tabindex="-1">Netflix</button>
+        <button class="filter-button" data-value="Prime Video" role="radio" aria-checked="false" tabindex="-1">Prime Video</button>
+        <button class="filter-button" data-value="Hulu" role="radio" aria-checked="false" tabindex="-1">Hulu</button>
+        <button class="filter-button" data-value="Disney+" role="radio" aria-checked="false" tabindex="-1">Disney+</button>
+      </div>
+    </div>
+    <div class="filter-group">
+      <h3>Device</h3>
+      <div class="filter-buttons" id="device-filters" role="radiogroup" aria-label="Device Filters">
+        <button class="filter-button active" data-value="all" role="radio" aria-checked="true" tabindex="0">All</button>
+        <button class="filter-button" data-value="Smart TV" role="radio" aria-checked="false" tabindex="-1">Smart TV</button>
+        <button class="filter-button" data-value="Mobile" role="radio" aria-checked="false" tabindex="-1">Mobile</button>
+        <button class="filter-button" data-value="Tablet" role="radio" aria-checked="false" tabindex="-1">Tablet</button>
+        <button class="filter-button" data-value="Laptop" role="radio" aria-checked="false" tabindex="-1">Laptop</button>
+      </div>
+    </div>
+    <div class="filter-group">
+      <h3>Genre</h3>
+      <div class="filter-buttons" id="genre-filters" role="radiogroup" aria-label="Genre Filters">
+        <button class="filter-button active" data-value="all" role="radio" aria-checked="true" tabindex="0">All</button>
+        <button class="filter-button" data-value="Action" role="radio" aria-checked="false" tabindex="-1">Action</button>
+        <button class="filter-button" data-value="Drama" role="radio" aria-checked="false" tabindex="-1">Drama</button>
+        <button class="filter-button" data-value="Comedy" role="radio" aria-checked="false" tabindex="-1">Comedy</button>
+        <button class="filter-button" data-value="Thriller" role="radio" aria-checked="false" tabindex="-1">Thriller</button>
+        <button class="filter-button" data-value="Sci-Fi" role="radio" aria-checked="false" tabindex="-1">Sci-Fi</button>
+        <button class="filter-button" data-value="Romance" role="radio" aria-checked="false" tabindex="-1">Romance</button>
+        <button class="filter-button" data-value="Horror" role="radio" aria-checked="false" tabindex="-1">Horror</button>
+      </div>
+    </div>
+    <div class="filter-group">
+      <label for="watchtime-slider">Watch Time (max minutes)</label>
+      <div class="slider-container">
+        <input type="range" id="watchtime-slider" min="0" max="150" value="150" step="5" aria-valuemin="0" aria-valuemax="150" aria-valuenow="150" aria-label="Maximum watch time in minutes"/>
+        <div class="range-values"><span>0</span><span id="watchtime-max">150</span></div>
+      </div>
+    </div>
+    <div class="filter-group">
+      <label for="rating-slider">Rating (min)</label>
+      <div class="slider-container">
+        <input type="range" id="rating-slider" min="3.5" max="5" value="3.5" step="0.1" aria-valuemin="3.5" aria-valuemax="5" aria-valuenow="3.5" aria-label="Minimum rating"/>
+        <div class="range-values"><span>3.5</span><span id="rating-max">5</span></div>
+      </div>
+    </div>
+  </aside>
+
+  <section class="content" aria-label="Dashboard Content">
+
+    <!-- Animated Counters -->
+    <div class="panel" style="grid-column: span 2;">
+      <h2 tabindex="0">Welcome Back!</h2>
+      <div class="counters-group">
+        <div>
+          <div>Total Hours Watched</div>
+          <div class="counter" id="counter-watchtime" aria-live="polite" aria-atomic="true">0</div>
+        </div>
+        <div>
+          <div>Top Genre</div>
+          <div class="counter" id="counter-topgenre" aria-live="polite" aria-atomic="true">-</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Genre Heatmap -->
+    <div class="panel" tabindex="0" aria-label="Genre Heatmap">
+      <h2>Genre Heatmap</h2>
+      <div class="heatmap-grid" id="genre-heatmap" aria-live="polite"></div>
+    </div>
+
+    <!-- Platform Comparison Bar Chart -->
+    <div class="panel" tabindex="0" aria-label="Platform Watch Time">
+      <h2>Platform Watch Time</h2>
+      <div id="platform-bar-chart" class="bar-chart" aria-live="polite"></div>
+    </div>
+
+    <!-- Device Usage Pie Chart -->
+    <div class="panel" style="grid-column: span 2;" tabindex="0" aria-label="Device Usage">
+      <h2>Device Usage</h2>
+      <div class="pie-chart-container" role="img" aria-label="Pie chart showing usage of devices">
+        <svg class="pie-chart" viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg"></svg>
+      </div>
+      <div class="legend" id="device-legend" aria-label="Device Usage Legend"></div>
+    </div>
+
+    <!-- Leaderboard -->
+    <div class="panel leaderboard" tabindex="0" aria-label="Leaderboard panel">
+      <h2>Leaderboard</h2>
+      <div id="leaderboard-list"></div>
+    </div>
+  </section>
+</main>
+
+<!-- Modal Details -->
+<div id="details-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-title">
+  <div>
+    <button id="close-modal" aria-label="Close details modal" title="Close modal">✖</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  // Sample full dataset includes Date_Watched from your attachment trimmed for demo:
+  // Note: You can replace this with your full dataset
+  const data = [
+    { User_ID:"USR0001", Content_ID:"CON0001", Genre:"Action", Watch_Time_Minutes:120, Rating:4.5, Date_Watched:"2025-01-01", Platform:"Netflix", Device_Type:"Smart TV" },
+    { User_ID:"USR0002", Content_ID:"CON0002", Genre:"Drama", Watch_Time_Minutes:90, Rating:3.8, Date_Watched:"2025-01-02", Platform:"Prime Video", Device_Type:"Mobile" },
+    { User_ID:"USR0003", Content_ID:"CON0003", Genre:"Comedy", Watch_Time_Minutes:45, Rating:4.0, Date_Watched:"2025-01-03", Platform:"Hulu", Device_Type:"Laptop" },
+    { User_ID:"USR0004", Content_ID:"CON0004", Genre:"Thriller", Watch_Time_Minutes:110, Rating:4.2, Date_Watched:"2025-01-04", Platform:"Disney+", Device_Type:"Tablet" },
+    { User_ID:"USR0005", Content_ID:"CON0005", Genre:"Sci-Fi", Watch_Time_Minutes:130, Rating:4.7, Date_Watched:"2025-01-05", Platform:"Netflix", Device_Type:"Smart TV" },
+    { User_ID:"USR0006", Content_ID:"CON0006", Genre:"Romance", Watch_Time_Minutes:95, Rating:3.5, Date_Watched:"2025-01-06", Platform:"Prime Video", Device_Type:"Mobile" },
+    { User_ID:"USR0007", Content_ID:"CON0007", Genre:"Horror", Watch_Time_Minutes:80, Rating:3.9, Date_Watched:"2025-01-07", Platform:"Hulu", Device_Type:"Laptop" },
+    { User_ID:"USR0008", Content_ID:"CON0008", Genre:"Action", Watch_Time_Minutes:115, Rating:4.3, Date_Watched:"2025-01-08", Platform:"Disney+", Device_Type:"Tablet" },
+    { User_ID:"USR0009", Content_ID:"CON0009", Genre:"Drama", Watch_Time_Minutes:100, Rating:4.1, Date_Watched:"2025-01-09", Platform:"Netflix", Device_Type:"Smart TV" },
+    { User_ID:"USR0010", Content_ID:"CON0010", Genre:"Comedy", Watch_Time_Minutes:60, Rating:3.7, Date_Watched:"2025-01-10", Platform:"Prime Video", Device_Type:"Mobile" },
+    // Add more entries here as per actual dataset or keep this demo subset
+  ];
+
+  // Constants & DOM Elements
+  const platformFilters = document.querySelectorAll("#platform-filters .filter-button");
+  const deviceFilters = document.querySelectorAll("#device-filters .filter-button");
+  const genreFilters = document.querySelectorAll("#genre-filters .filter-button");
+  const watchtimeSlider = document.getElementById("watchtime-slider");
+  const watchtimeMaxLabel = document.getElementById("watchtime-max");
+  const ratingSlider = document.getElementById("rating-slider");
+  const ratingMaxLabel = document.getElementById("rating-max");
+
+  const genreHeatmap = document.getElementById("genre-heatmap");
+  const platformBarChart = document.getElementById("platform-bar-chart");
+  const pieChartSvg = document.querySelector(".pie-chart");
+  const deviceLegend = document.getElementById("device-legend");
+  const counterWatchtime = document.getElementById("counter-watchtime");
+  const counterTopGenre = document.getElementById("counter-topgenre");
+  const leaderboardList = document.getElementById("leaderboard-list");
+
+  const detailsModal = document.getElementById("details-modal");
+  const modalContent = document.getElementById("modal-content");
+  const closeModalBtn = document.getElementById("close-modal");
+
+  // Possible genres, platforms, devices for order and reference
+  const GENRES = ["Action","Drama","Comedy","Thriller","Sci-Fi","Romance","Horror"];
+  const PLATFORMS = ["Netflix","Prime Video","Hulu","Disney+"];
+  const DEVICES = ["Smart TV","Mobile","Tablet","Laptop"];
+
+  // Genre colors
+  const GENRE_COLORS = {
+    "Action": "#e63946",
+    "Drama": "#f1faee",
+    "Comedy": "#f4a261",
+    "Thriller": "#2a9d8f",
+    "Sci-Fi": "#264653",
+    "Romance": "#e76f51",
+    "Horror": "#6a040f"
+  };
+
+  // Platform colors
+  const PLATFORM_COLORS = {
+    "Netflix": "#e50914",
+    "Prime Video": "#00a8e1",
+    "Hulu": "#4db848",
+    "Disney+": "#113ccf"
+  };
+
+  // Device colors
+  const DEVICE_COLORS = {
+    "Smart TV": "#ffbe0b",
+    "Mobile": "#fb5607",
+    "Tablet": "#ff006e",
+    "Laptop": "#8338ec"
+  };
+
+  // --- State ---
+  let filters = {
+    platform: localStorage.getItem('filterPlatform') || "all",
+    device: localStorage.getItem('filterDevice') || "all",
+    genre: localStorage.getItem('filterGenre') || "all",
+    maxWatchTime: parseInt(localStorage.getItem('filterWatchTime')) || 150,
+    minRating: parseFloat(localStorage.getItem('filterRating')) || 3.5
+  };
+
+  // Animate number increment helper
+  function animateCounter(element, start, end, duration = 1200) {
+    const range = end - start;
+    if(range <= 0) {
+      element.textContent = end;
+      return;
+    }
+    let startTime = null;
+
+    function step(timestamp) {
+      if(!startTime) startTime = timestamp;
+      let progress = timestamp - startTime;
+      let val = Math.min(start + Math.floor((progress / duration) * range), end);
+      element.textContent = val.toLocaleString();
+      if(val < end) {
+        requestAnimationFrame(step);
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
+  // Filters dataset by current selections
+  function applyFilters() {
+    return data.filter(d =>
+      (filters.platform === "all" || d.Platform === filters.platform) &&
+      (filters.device === "all" || d.Device_Type === filters.device) &&
+      (filters.genre === "all" || d.Genre === filters.genre) &&
+      d.Watch_Time_Minutes <= filters.maxWatchTime &&
+      d.Rating >= filters.minRating
+    );
+  }
+
+  // Aggregate calculations
+  function calculateAggregates(filteredData) {
+    const totalWatchTimeMin = filteredData.reduce((acc, d) => acc + d.Watch_Time_Minutes, 0);
+    const totalWatchTimeHours = Math.floor(totalWatchTimeMin / 60);
+
+    // Top genre by total watch time
+    const genreMap = {};
+    filteredData.forEach(d => { genreMap[d.Genre] = (genreMap[d.Genre] || 0) + d.Watch_Time_Minutes; });
+    let topGenre = null; let maxTime = 0;
+    for (const g of GENRES) {
+      if((genreMap[g] || 0) > maxTime) {
+        maxTime = genreMap[g];
+        topGenre = g;
+      }
+    }
+
+    // Genre stats for heatmap
+    const heatmapStats = {};
+    GENRES.forEach(g => heatmapStats[g] = { count: 0, totalRating: 0 });
+    filteredData.forEach(d => {
+      heatmapStats[d.Genre].count++;
+      heatmapStats[d.Genre].totalRating += d.Rating;
+    });
+    GENRES.forEach(g => {
+      if(heatmapStats[g].count > 0) {
+        heatmapStats[g].avgRating = heatmapStats[g].totalRating / heatmapStats[g].count;
+      } else {
+        heatmapStats[g].avgRating = 0;
+      }
+    });
+
+    // Platform totals for bar chart
+    const platformTotals = {};
+    PLATFORMS.forEach(p => platformTotals[p] = 0);
+    filteredData.forEach(d => { platformTotals[d.Platform] += d.Watch_Time_Minutes; });
+
+    // Device usage counts for pie chart
+    const deviceTotals = {};
+    DEVICES.forEach(d => deviceTotals[d] = 0);
+    filteredData.forEach(d => { deviceTotals[d.Device_Type]++; });
+
+    // Leaderboard: top genres by watch time
+    const leaderboardData = Object.entries(genreMap)
+      .map(([name, value]) => ({ name, value }))
+      .sort((a,b) => b.value - a.value);
+
+    return { totalWatchTimeHours, topGenre, heatmapStats, platformTotals, deviceTotals, leaderboardData };
+  }
+
+  // Update filter buttons active state & ARIA
+  function updateFilterButtons(filtersGroup, value){
+    filtersGroup.forEach(btn => {
+      const active = btn.dataset.value === value;
+      btn.classList.toggle('active', active);
+      btn.setAttribute('aria-checked', active);
+      btn.tabIndex = active ? 0 : -1;
+    });
+  }
+
+  // Build Genre Heatmap
+  function buildGenreHeatmap(stats) {
+    genreHeatmap.innerHTML = '';
+    const maxCount = Math.max(...GENRES.map(g => (stats[g]?.count || 0))) || 1;
+    GENRES.forEach(genre => {
+      const stat = stats[genre] || {count: 0, avgRating: 0};
+      const count = stat.count;
+      const avgRating = stat.avgRating;
+      // Size & color mapping
+      const baseSize = 60;
+      const size = baseSize + (count / maxCount) * 30; // 60-90px
+      const opacity = avgRating ? Math.min(1, (avgRating - 3.5)/1.5 * 0.7 + 0.3) : 0.3;
+      const bgColor = hexToRGBA(GENRE_COLORS[genre] || "#999", opacity);
+
+      const cell = document.createElement('div');
+      cell.className = 'heatmap-cell';
+      cell.style.setProperty('--cell-bg', bgColor);
+      cell.style.width = size + 'px';
+      cell.style.height = size + 'px';
+      cell.setAttribute('tabindex', '0');
+      cell.setAttribute('role', 'button');
+      cell.setAttribute('aria-label', `${genre}. Total views: ${count}. Average rating: ${avgRating.toFixed(2)}`);
+
+      cell.innerHTML = `
+        <span>${genre}</span>
+        <span class="views-count">${count} views</span>
+        <div class="heatmap-tooltip" role="tooltip">
+          <strong>${genre}</strong><br/>
+          Total views: ${count}<br/>
+          Average rating: ${avgRating.toFixed(2)}<br/>
+          Approx. total watch time: ${count * 60} min
+        </div>
+      `;
+
+      // Clicking a genre opens modal with details
+      cell.onclick = () => showDetailsModal('genre', genre, stats[genre]);
+      cell.onkeypress = e => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); cell.click(); } };
+
+      genreHeatmap.appendChild(cell);
+    });
+  }
+
+  // Hex to rgba helper
+  function hexToRGBA(hex, alpha = 1){
+    let r=0, g=0, b=0;
+    if(hex.length === 7){
+      r = parseInt(hex.slice(1,3), 16);
+      g = parseInt(hex.slice(3,5), 16);
+      b = parseInt(hex.slice(5,7), 16);
+    }
+    return `rgba(${r},${g},${b},${alpha})`;
+  }
+
+  // Build Platform Bar Chart
+  function buildPlatformBarChart(platformTotals) {
+    platformBarChart.innerHTML = '';
+    const maxTotal = Math.max(...PLATFORMS.map(p => platformTotals[p] || 0)) || 1;
+
+    PLATFORMS.forEach(platform => {
+      const watchTime = platformTotals[platform] || 0;
+      const widthPercent = (watchTime / maxTotal) * 100;
+
+      const barLabel = document.createElement('div');
+      barLabel.textContent = platform;
+      barLabel.className = 'bar-label';
+
+      const bar = document.createElement('div');
+      bar.className = 'bar';
+      bar.setAttribute("tabindex","0");
+      bar.setAttribute("role","button");
+      bar.setAttribute("aria-label", `${platform} total watch time: ${watchTime} minutes`);
+
+      const barSegment = document.createElement('div');
+      barSegment.className = 'bar-segment';
+      barSegment.style.backgroundColor = PLATFORM_COLORS[platform] || '#888';
+      barSegment.style.width = '0%'; // animate from zero
+
+      const valueLabel = document.createElement('div');
+      valueLabel.className = 'bar-value';
+
+      bar.appendChild(barSegment);
+      bar.appendChild(valueLabel);
+      platformBarChart.appendChild(barLabel);
+      platformBarChart.appendChild(bar);
+
+      // Animate width and value label 
+      setTimeout(() => {
+        barSegment.style.width = widthPercent + '%';
+        valueLabel.textContent = Math.round(watchTime) + ' min';
+      }, 100);
+
+      // Click handler opens modal for platform details
+      bar.onclick = () => showDetailsModal('platform', platform, null);
+      bar.onkeypress = e => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); bar.click(); } };
+    });
+  }
+
+  // Build Device Pie Chart with legend
+  function buildDevicePieChart(deviceTotals) {
+    while (pieChartSvg.firstChild) pieChartSvg.removeChild(pieChartSvg.firstChild);
+    deviceLegend.innerHTML = '';
+
+    const total = Object.values(deviceTotals).reduce((a,b) => a+b, 0);
+    if(total === 0){
+      pieChartSvg.innerHTML = `<text x="21" y="21" text-anchor="middle" dominant-baseline="middle" fill="#666" font-size="3">No Data</text>`;
+      return;
+    }
+
+    let cumulativePercent = 0;
+    for (const device of DEVICES){
+      const count = deviceTotals[device] || 0;
+      if(count === 0) continue;
+
+      const slicePercent = count / total;
+      const [startX, startY] = getCoordinatesForPercent(cumulativePercent);
+      cumulativePercent += slicePercent;
+      const [endX, endY] = getCoordinatesForPercent(cumulativePercent);
+      const largeArcFlag = slicePercent > 0.5 ? 1 : 0;
+      const pathData = `M 21 21 L ${startX} ${startY} A 15 15 0 ${largeArcFlag} 1 ${endX} ${endY} Z`;
+
+      const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      path.setAttribute("d", pathData);
+      path.setAttribute("fill", DEVICE_COLORS[device] || "#ccc");
+      path.setAttribute("stroke", "#fff");
+      path.setAttribute("stroke-width", "0.5");
+
+      pieChartSvg.appendChild(path);
+
+      // Legend
+      const legendItem = document.createElement("div");
+      legendItem.className = "legend-item";
+      legendItem.tabIndex = 0;
+
+      const colorBox = document.createElement("span");
+      colorBox.className = "legend-color";
+      colorBox.style.backgroundColor = DEVICE_COLORS[device];
+
+      const label = document.createElement("span");
+      label.textContent = `${device} (${count})`;
+
+      legendItem.appendChild(colorBox);
+      legendItem.appendChild(label);
+      deviceLegend.appendChild(legendItem);
+
+      legendItem.onkeypress = e => { 
+        if(e.key === 'Enter' || e.key === ' ') { 
+          e.preventDefault();
+          // Optional: filter by device on legend click (can be implemented if desired)
+        }
+      };
+    }
+  }
+  // Helper: calculate coordinates on SVG circle circumference by percent
+  function getCoordinatesForPercent(percent) {
+    const x = 21 + 15 * Math.cos(2 * Math.PI * percent);
+    const y = 21 + 15 * Math.sin(2 * Math.PI * percent);
+    return [x, y];
+  }
+
+  // Update counters with animation
+  function updateCounters(totalWatchTimeHours, topGenre) {
+    animateCounter(counterWatchtime, parseInt(counterWatchtime.textContent.replace(/,/g,'')) || 0, totalWatchTimeHours);
+    counterTopGenre.textContent = topGenre || "-";
+  }
+
+  // Build Leaderboard panel with animated bars
+  function buildLeaderboard(genresData) {
+    leaderboardList.innerHTML = "";
+    if(!genresData || genresData.length === 0){
+      leaderboardList.textContent = "No data to show.";
+      return;
+    }
+    // Find max value for scaling
+    const maxVal = genresData[0].value || 1;
+
+    genresData.slice(0,5).forEach((g,i) => {
+      const container = document.createElement("div");
+      container.tabIndex = 0;
+      container.setAttribute("aria-label", `${g.name}: ${g.value} minutes watched`);
+
+      const title = document.createElement("div");
+      title.style.marginBottom = "4px";
+      title.style.fontWeight = "600";
+      title.textContent = `${i+1}. ${g.name} (${g.value} min)`;
+
+      const bar = document.createElement("div");
+      bar.className = "leaderboard-bar";
+      // Width scaled max 100%
+      const widthPercent = (g.value / maxVal) * 100;
+      // Animate width on next paint
+      bar.style.width = "0%";
+
+      container.appendChild(title);
+      container.appendChild(bar);
+      leaderboardList.appendChild(container);
+
+      setTimeout(() => bar.style.width = widthPercent + "%", 100);
+    });
+  }
+
+  // Show modal details for genre or platform
+  function showDetailsModal(type, name, stats) {
+    detailsModal.classList.add('visible');
+    detailsModal.setAttribute('aria-hidden', 'false');
+    if(type === 'genre') {
+      // Basic details example
+      const count = stats?.count || 0;
+      const avgRating = stats?.avgRating || 0;
+      modalContent.innerHTML = `
+        <h2 id="modal-title">${name} Genre</h2>
+        <p><strong>Total Views:</strong> ${count}</p>
+        <p><strong>Average Rating:</strong> ${avgRating.toFixed(2)}</p>
+        <p><strong>Approximate total watch time:</strong> ${count * 60} minutes</p>
+        <p>Discover popular titles and latest trends in the ${name} genre by platform and device.</p>
+      `;
+    } else if(type === 'platform') {
+      modalContent.innerHTML = `
+        <h2 id="modal-title">${name} Platform</h2>
+        <p>Explore how viewers interact with ${name}. See watch times, popular genres, and devices.</p>
+        <p>Feature-rich content coming soon...</p>
+      `;
+    } else {
+      modalContent.innerHTML = `
+        <h2 id="modal-title">Details</h2><p>No data available.</p>
+      `;
+    }
+    closeModalBtn.focus();
+  }
+  // Close modal
+  closeModalBtn.onclick = () => {
+    detailsModal.classList.remove('visible');
+    detailsModal.setAttribute('aria-hidden', 'true');
+    // Return focus appropriately: to last focused (for demo, back to first filter)
+    platformFilters[0].focus();
+  };
+  // Close modal on ESC key
+  document.addEventListener('keydown', e => {
+    if(e.key === "Escape" && detailsModal.classList.contains('visible')){
+      closeModalBtn.click();
+    }
+  });
+
+  // Filter button click handlers
+  function onFilterButtonClick(filterKey, event){
+    if(!event.target.matches('.filter-button')) return;
+    const value = event.target.dataset.value;
+    if(value === filters[filterKey]) return; // no change
+    filters[filterKey] = value;
+    // Save to localStorage
+    localStorage.setItem(`filter${capitalize(filterKey)}`, value);
+    updateFiltersUI();
+    refreshDashboard();
+  }
+  // Capitalize helper
+  function capitalize(str){return str.charAt(0).toUpperCase() + str.slice(1);}
+
+  // Slider updates
+  function onSliderChange(event){
+    if(event.target === watchtimeSlider){
+      filters.maxWatchTime = parseInt(event.target.value);
+      watchtimeMaxLabel.textContent = filters.maxWatchTime;
+      localStorage.setItem('filterWatchTime', filters.maxWatchTime);
+    } else if(event.target === ratingSlider){
+      filters.minRating = parseFloat(event.target.value);
+      ratingMaxLabel.textContent = filters.minRating.toFixed(1);
+      localStorage.setItem('filterRating', filters.minRating);
+    }
+    refreshDashboard();
+  }
+
+  // Update filters UI states
+  function updateFiltersUI(){
+    updateFilterButtons(platformFilters, filters.platform);
+    updateFilterButtons(deviceFilters, filters.device);
+    updateFilterButtons(genreFilters, filters.genre);
+    // Sliders
+    watchtimeSlider.value = filters.maxWatchTime;
+    watchtimeMaxLabel.textContent = filters.maxWatchTime;
+    ratingSlider.value = filters.minRating;
+    ratingMaxLabel.textContent = filters.minRating.toFixed(1);
+  }
+
+  // Refresh dashboard rendering
+  function refreshDashboard(){
+    const filteredData = applyFilters();
+    const {
+      totalWatchTimeHours, 
+      topGenre, 
+      heatmapStats, 
+      platformTotals, 
+      deviceTotals,
+      leaderboardData
+    } = calculateAggregates(filteredData);
+
+    updateCounters(totalWatchTimeHours, topGenre);
+    buildGenreHeatmap(heatmapStats);
+    buildPlatformBarChart(platformTotals);
+    buildDevicePieChart(deviceTotals);
+    buildLeaderboard(leaderboardData);
+  }
+
+  // Initialize
+  function init(){
+    // Set initial filter UI states
+    updateFiltersUI();
+
+    // Setup event listeners for filter buttons with role "radio" keyboard support
+    ['platform', 'device', 'genre'].forEach(filterKey => {
+      const container = document.getElementById(`${filterKey}-filters`);
+      container.addEventListener('click', e => onFilterButtonClick(filterKey, e));
+      container.addEventListener('keydown', e => {
+        const buttons = Array.from(container.querySelectorAll('.filter-button'));
+        const currentIndex = buttons.findIndex(btn => btn === e.target);
+        let newIndex = null;
+        if(e.key === 'ArrowRight' || e.key === 'ArrowDown'){
+          newIndex = (currentIndex + 1) % buttons.length;
+          buttons[newIndex].focus();
+          e.preventDefault();
+        }
+        else if(e.key === 'ArrowLeft' || e.key === 'ArrowUp'){
+          newIndex = (currentIndex - 1 + buttons.length) % buttons.length;
+          buttons[newIndex].focus();
+          e.preventDefault();
+        }
+        else if(e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          buttons[currentIndex].click();
+        }
+      });
+    });
+
+    // Sliders input
+    watchtimeSlider.addEventListener('input', onSliderChange);
+    ratingSlider.addEventListener('input', onSliderChange);
+
+    // Theme toggle
+    const themeBtn = document.getElementById("theme-toggle");
+    themeBtn.onclick = () => {
+      document.body.classList.toggle("dark");
+      localStorage.setItem('theme', document.body.classList.contains("dark") ? "dark" : "light");
+      themeBtn.textContent = document.body.classList.contains("dark") ? '☀️' : '🌙';
+      themeBtn.setAttribute('aria-label', `Toggle ${document.body.classList.contains("dark") ? "light" : "dark"} mode`);
+    };
+    // Load persisted theme
+    if(localStorage.getItem('theme') === "dark"){
+      document.body.classList.add("dark");
+      themeBtn.textContent = '☀️';
+      themeBtn.setAttribute('aria-label', 'Toggle light mode');
+    }
+
+    // Initial dashboard load
+    refreshDashboard();
+  }
+
+  init();
+
+})();
+</script>
+</body>
+</html>

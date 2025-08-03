@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tables</title>
+    <style>
+      body {
+        background: #eee;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Navigation */
+
+      .navigation {
+        box-sizing: border-box;
+        background-color: #3587a4;
+        overflow: auto;
+        padding: 18px 50px;
+        position: relative;
+        top: 0;
+        width: 100%;
+        z-index: 999;
+      }
+
+      ul {
+        padding: 0;
+        margin: 0;
+      }
+
+      li {
+        color: #fff;
+        display: inline-block;
+        font-family: "Oxygen", sans-serif;
+        font-weight: 300;
+        font-size: 16px;
+        letter-spacing: 2px;
+        margin: 0;
+        padding: 20px 18px 10px 18px;
+        text-transform: uppercase;
+      }
+
+      .active {
+        color: #88ccf1;
+      }
+
+      /* Table */
+
+      table {
+        height: 40%;
+        left: 10%;
+        margin: 20px auto;
+        overflow-y: scroll;
+        position: static;
+        width: 80%;
+      }
+
+      thead th {
+        background: #88ccf1;
+        color: #fff;
+        font-family: "Lato", sans-serif;
+        font-weight: 100;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      tr {
+        background: #f4f7f8;
+        border-bottom: 1px solid #fff;
+        margin-bottom: 5px;
+      }
+
+      th,
+      td {
+        font-family: "Lato", sans-serif;
+        font-weight: 400;
+        padding: 20px;
+        text-align: left;
+        width: 33.3333%;
+      }
+
+      .search {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        color: #aaa;
+        padding: 20px;
+        margin: 50px auto 0px auto;
+        width: 77%;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+
+      body {
+        background-color: rgb(57, 169, 219);
+        font-family: Rubik, Arial;
+      }
+
+      form {
+        text-align: center;
+        line-height: 30px;
+        height: 80%;
+        overflow: auto;
+      }
+
+      form hr {
+        width: 15%;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      #overlay {
+        width: 80%;
+        margin: 3% auto;
+        height: 95vh;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 40px;
+      }
+
+      #logo {
+        height: 100px;
+        display: block;
+        margin: auto;
+      }
+
+      .toppings label,
+      .cheesy label {
+        margin-right: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <!-- Row 1 -->
+        <th></th>
+        <th>Saturday</th>
+        <th>Sunday</th>
+      </tr>
+      <tr>
+        <!-- Row 2 -->
+        <th>Morning</th>
+        <td rowspan="2">Work</td>
+        <td rowspan="3">Relax</td>
+      </tr>
+      <tr>
+        <!-- Row 3 -->
+        <th>Afternoon</th>
+      </tr>
+      <tr>
+        <!-- Row 4 -->
+        <th>Evening</th>
+        <td>Dinner</td>
+      </tr>
+    </table>
+    <table>
+      <tbody>
+        <tr>
+          <th></th>
+          <th>Saturday</th>
+          <th>Sunday</th>
+        </tr>
+        <tr>
+          <th>Morning</th>
+          <td rowspan="2">Work</td>
+          <td rowspan="3">Relax</td>
+        </tr>
+        <tr>
+          <th>Afternoon</th>
+        </tr>
+        <tr>
+          <th>Evening</th>
+          <td>Dinner</td>
+        </tr>
+      </tbody>
+    </table>
+    <table>
+      <thead>
+        <tr>
+          <th>Quarter</th>
+          <th>Revenue</th>
+          <th>Costs</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Q1</th>
+          <td>$10M</td>
+          <td>$7.5M</td>
+        </tr>
+        <tr>
+          <th>Q2</th>
+          <td>$12M</td>
+          <td>$5M</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>Total</th>
+          <td>$22M</td>
+          <td>$12.5M</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <form>
+      <label for="city">Ideal city to visit?</label>
+      <input type="text" list="cities" id="city" name="city" />
+
+      <datalist id="cities">
+        <option value="New York City"></option>
+        <option value="Tokyo"></option>
+        <option value="Barcelona"></option>
+        <option value="Mexico City"></option>
+        <option value="Melbourne"></option>
+        <option value="Other"></option>
+      </datalist>
+      <br>
+      <span>Left</span>
+      <input type="range" min="0" max="10" step="2">
+      <span>Right</span>
+    </form>
+  </body>
+</html>
